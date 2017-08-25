@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>海星游戏官网</title>
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+</head>
+<body>
+
+	<script src="./script/init.js"></script>
+	<script type="text/javascript">
+		INIT([750,1136],'all',function(){});
+	</script>
+	
+	<div class="top_bar">
+		<a class="back_btn" href="index.html"></a>
+		<p>游戏</p>
+	</div>
+	<a class="menu_btn" href="javascript:void(0);">
+		<span></span>
+		<span></span>
+		<span></span>
+	</a>
+	<ul class="right_menu">
+		<li>
+			<a href="news.html">新闻</a>
+		</li>
+		<li>
+			<a href="games.html">游戏</a>
+		</li>    
+		<li>
+			<a href="https://m.lagou.com/gongsi/134591.html">招聘</a>
+		</li>
+		<li>
+			<a href="about.html">关于</a>
+		</li>
+		<li>
+			<a href="contact.html">联系</a>
+		</li>
+		<a class="up_jt" href="games.html"></a>
+	</ul>
+	<ul class="game_list">
+		<li>
+			<a href="https://www.facebook.com/StreetballHero/" target="_blank">
+				<img src="images/gameicon_sbh.png">
+				<p>Streetball Hero</p>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.luobo.cn/" target="_blank">
+				<img src="images/gameicon_bwlb.png">
+				<p>Carrot Defense</p>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.facebook.com/PK.seastar/" target="_blank">
+				<img src="images/gameicon_jjsg.png">
+				<p>街機三國</p>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.facebook.com/gensousyoujyo.tw/" target="_blank">
+				<img src="images/gameicon_hxsn.png">
+				<p>幻想少女</p>
+			</a>
+		</li>
+		<li>
+			<a onclick="jingqingqidai()">
+				<img src="images/gameicon_sxd2.png">
+				<p>神仙道2</p>
+			</a>
+		</li>
+		<div class="clearfix"></div>
+	</ul>
+	<div class="footer">
+		<p class="copyright">COPYRIGHT @ 2017 SEASTAR. ALL RIGHTS RESERVED.<br>海星游戏 版权所有 </p>
+	</div>
+
+	<script type="text/javascript" src="./script/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="./script/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript" src="./script/index.js"></script>
+	<script type="text/javascript">
+		(function( $ ){
+			var data_file = $("#data_file").val();
+			var page_size = $("#page_size").val();
+			$(".morebtn_wrap").click(function(){
+				var start = $(".game_list li").length;
+				$.get(data_file, function( data ){
+			//console.log(data);
+			var load_data = Array.prototype.slice.call(data, start);
+			//console.log(load_data);
+			if(load_data.length > 0){
+				for(var i=0; i<= page_size; i++){
+					if(load_data[i]){
+						$("<li><a href='"+load_data[i]['url_home']+"'><img src='"+load_data[i]['img_path']+"'><p>"+load_data[i]['title']+"</p></a></li>").insertBefore(".clearfix");
+					}
+					else{
+						$(".morebtn_wrap").hide();
+						break;
+					}
+					
+				}
+			}
+			
+
+		});
+
+			});
+
+		})(window.jQuery)
+	</script>
+
+	<script type="text/javascript">
+        function jingqingqidai()
+        {
+            alert("敬请期待...");
+        }
+	</script>
+
+
+</body></html>
